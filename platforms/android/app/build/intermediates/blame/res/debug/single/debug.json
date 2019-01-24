@@ -24,6 +24,10 @@
         "source": "D:\\cordova\\platforms\\android\\app\\src\\main\\res\\xml\\config.xml"
     },
     {
+        "merged": "D:\\cordova\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\xml_camera_provider_paths.xml.flat",
+        "source": "D:\\cordova\\platforms\\android\\app\\src\\main\\res\\xml\\camera_provider_paths.xml"
+    },
+    {
         "merged": "D:\\cordova\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-ldpi_icon.png.flat",
         "source": "D:\\cordova\\platforms\\android\\app\\src\\main\\res\\mipmap-ldpi\\icon.png"
     },
