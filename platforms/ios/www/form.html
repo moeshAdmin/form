@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <!--<meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">-->
+        <meta name="format-detection" content="telephone=no">
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+        <link rel="stylesheet" type="text/css" href="css/forms.css">
+        <title>Customer Form</title>
+        
+    </head>
+    <body>
+        <div class="container">  
+          <h3 style="color:#fff;" onclick="run('tool')">TATUNG TECHNOLOGY INC.</h3>
+          <form id="contact" method="post">
+            <h3>Customer Form</h3>
+            <h4>WE WILL CONTACT SOON!</h4>
+            <fieldset>
+              <input placeholder="Your name" type="text" tabindex="1" id="name" required autofocus>
+            </fieldset>
+            <fieldset>
+              <input placeholder="Your Business Email Address" type="email" id="email" tabindex="2" required>
+            </fieldset>
+            <fieldset>
+              <input placeholder="Your Phone Number (optional)" type="tel" id="tel" tabindex="3">
+            </fieldset>
+            <fieldset>
+              <input placeholder="Your Job Title (optional)" type="text" id="title" tabindex="4">
+            </fieldset>
+            <fieldset>
+              <textarea placeholder="Type your message here...." tabindex="5" id="note"></textarea>
+            </fieldset>
+            <fieldset>
+              <input placeholder="area" type="text" id="area" tabindex="6">
+            </fieldset>
+            <fieldset>
+              <div name="submit" onclick="saveData('form')" type="submit" id="contact-submit" data-submit="...Sending">Submit</div>
+            </fieldset>
+            <p class="copyright">THANKS YOU!</p>
+            <a href="index2.html">sqlite test</a>
+
+          </form>
+        </div>
+        <div class="app" style="display: none;">
+                <h1>Apache Cordova</h1>
+                <div id="deviceready" class="blink">
+                    <p class="event listening">Connecting to Device</p>
+                    <p class="event received">Device is Ready</p>
+                </div>
+        </div>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+    </body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <!--<meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">-->
+        <meta name="format-detection" content="telephone=no">
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+        <link rel="stylesheet" type="text/css" href="css/forms.css">
+        <title>Customer Form</title>
+        
+    </head>
+    <body>
+        <div id="loading-bg" style="display: none;"><div class="loader"></div><div id="loader-text" style="font-size: 20px;color: #fff;"></div></div>
+        <div class="container">  
+          <h3 style="color:#fff;">TATUNG TECHNOLOGY INC.</h3>
+          <form id="contact" method="post">
+            <h3>Form Tools</h3>
+            <h4>DB SETTING</h4>
+            <div id="area1" style="display: none;">
+                <div type="submit" onclick="query('create','',noFuc)">CREATE DB</div>
+            </div>
+            <div id="area2" style="display: none;">
+                <div type="submit" onclick="query('select','',noFuc)">VIEW CONTACT DATA</div>
+                <div type="submit" onclick="run('check')">DB CHECK</div>
+                <div type="submit" style="background: #ff1100" onclick="query('drop','',noFuc)">DB DROP</div>
+                <h4>CONFIG SETTING</h4>
+                <div type="submit" onclick="run('config')">SET CONFIG</div>
+                <h4>UPLOAD</h4>
+                <div type="submit" onclick="uploadData()">UPLOAD DB</div>
+                <h4>MENU</h4>
+                <div type="submit" style="background:#4c7daf" onclick="run('form')">START FORM</div>
+            </div>
+          </form>
+        </div>
+        <div class="app" style="display: none;">
+                <h1>Apache Cordova</h1>
+                <div id="deviceready" class="blink">
+                    <p class="event listening">Connecting to Device</p>
+                    <p class="event received">Device is Ready</p>
+                </div>
+        </div>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+    </body>
+</html>

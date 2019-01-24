@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <!--<meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">-->
+        <meta name="format-detection" content="telephone=no">
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+        <link rel="stylesheet" type="text/css" href="css/forms.css">
+        <title>Customer Form</title>
+        
+    </head>
+    <body>
+        <div class="container">  
+          <h3 style="color:#fff;">TATUNG TECHNOLOGY INC.</h3>
+          <form id="contact" method="post">
+            <h3>Customer Form Tools</h3>
+            <h4>BASIC SETTING MENU</h4>
+            <div type="submit" onclick="query('create','',noFuc)">create db</div>
+            <div type="submit" onclick="run('config')">set config</div>
+            <div type="submit" onclick="query('select','',noFuc)">search</div>
+            <div type="submit" onclick="query('select2','',noFuc)">config search</div>
+            <div type="submit" onclick="run('check')">check</div>
+            <div type="submit" onclick="query('drop','',noFuc)">drop</div>
+            <div type="submit" onclick="run('test')">callBack test</div>
+            <h4>MENU</h4>
+            <div type="submit" onclick="run('form')">START FORM</div>
+          </form>
+        </div>
+        <div class="app" style="display: none;">
+                <h1>Apache Cordova</h1>
+                <div id="deviceready" class="blink">
+                    <p class="event listening">Connecting to Device</p>
+                    <p class="event received">Device is Ready</p>
+                </div>
+        </div>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+    </body>
+</html>
