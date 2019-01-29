@@ -47,6 +47,14 @@ module.exports = [
     "clobbers": [
       "CameraPopoverHandle"
     ]
+  },
+  {
+    "id": "cordova-plugin-tesseract.TesseractPlugin",
+    "file": "plugins/cordova-plugin-tesseract/www/tesseractPlugin.js",
+    "pluginId": "cordova-plugin-tesseract",
+    "clobbers": [
+      "TesseractPlugin"
+    ]
   }
 ];
 module.exports.metadata = 
@@ -56,7 +64,8 @@ module.exports.metadata =
   "cordova-plugin-whitelist": "1.3.3",
   "cordova-plugin-console": "1.1.0",
   "cordova-sqlite-evcore-extbuild-free": "0.9.10",
-  "cordova-plugin-camera": "4.0.3"
+  "cordova-plugin-camera": "4.0.3",
+  "cordova-plugin-tesseract": "0.0.1"
 };
 // BOTTOM OF METADATA
 });

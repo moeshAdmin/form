@@ -18,27 +18,36 @@
           <form id="contact" method="post">
             <h3>Customer Form</h3>
             <fieldset>
-              <input placeholder="Your name" type="text" tabindex="1" id="name" required autofocus>
+              <div id="photo-btn" type="submit">TAKE PHOTO</div>
+              <img alt="image" id="photo" style="display: none;width:100%" />
             </fieldset>
-            <fieldset>
-              <input placeholder="Your Business Email Address" type="email" id="email" tabindex="2" required>
-            </fieldset>
-            <fieldset>
-              <input placeholder="Your Phone Number (optional)" type="tel" id="tel" tabindex="3">
-            </fieldset>
-            <fieldset>
-              <input placeholder="Your Job Title (optional)" type="text" id="title" tabindex="4">
-            </fieldset>
-            <fieldset>
-              <textarea placeholder="Type your message here...." tabindex="5" id="note"></textarea>
-            </fieldset>
-            <fieldset>
-              <input placeholder="area" type="text" id="area" tabindex="6">
-            </fieldset>
-            <fieldset>
-              <div name="submit" onclick="saveData('form')" type="submit" id="contact-submit" data-submit="...Sending">Submit</div>
-            </fieldset>
-
+            <div id="formArea">
+              <fieldset>
+                <input placeholder="Your name" type="text" tabindex="1" id="name" required autofocus>
+              </fieldset>
+              <fieldset>
+                <input placeholder="Your Business Email Address" type="email" id="email" tabindex="2" required>
+              </fieldset>
+              <fieldset>
+                <input placeholder="Your Phone Number (optional)" type="tel" id="tel" tabindex="3">
+              </fieldset>
+              <fieldset>
+                <input placeholder="Your Job Title (optional)" type="text" id="title" tabindex="4">
+              </fieldset>
+              <fieldset>
+                <textarea placeholder="Type your message here...." tabindex="5" id="note"></textarea>
+              </fieldset>
+              <fieldset>
+                <input type="text" id="sales" tabindex="6" readonly>
+              </fieldset>
+              <fieldset>
+                <input placeholder="area" type="text" id="area" tabindex="6" readonly>
+              </fieldset> 
+              <textarea placeholder="Type your message here...." tabindex="5" id="uKey"></textarea>
+            </div>
+              <fieldset>
+                <div name="submit" onclick="saveData('form')" type="submit" id="contact-submit" data-submit="...Sending">Submit</div>
+              </fieldset>
           </form>
         </div>
         <div class="app" style="display: none;">

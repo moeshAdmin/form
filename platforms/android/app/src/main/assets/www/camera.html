@@ -1,182 +1,76 @@
 <html>
-
-<head>
-<!--     <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *"> -->
-    <meta name="format-detection" content="telephone=no">
-    <meta name="msapplication-tap-highlight" content="no">
-    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
-    <link rel="stylesheet" type="text/css" href="css/index.css">
-    <title>Blank Cordova App</title>
-
-    <style type="text/css">
-                
-        * {
-            -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
-        }
-
-        body {
-            -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
-            -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
-            -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
-            background-color:#E4E4E4;
-            background-image:linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
-            background-image:-webkit-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
-            background-image:-ms-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
-            background-image:-webkit-gradient(
-                linear,
-                left top,
-                left bottom,
-                color-stop(0, #A7A7A7),
-                color-stop(0.51, #E4E4E4)
-            );
-            background-attachment:fixed;
-            font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
-            font-size:12px;
-            height:100%;
-            margin:0px;
-            padding:0px;
-            text-transform:uppercase;
-            width:100%;
-        }
-
-        /* Portrait layout (default) */
-        .app {
-            background:url(../img/logo.png) no-repeat center top; /* 170px x 200px */
-            position:absolute;             /* position in the center of the screen */
-            left:50%;
-            top:50%;
-            height:50px;                   /* text area height */
-            width:225px;                   /* text area width */
-            text-align:center;
-            padding:180px 0px 0px 0px;     /* image height is 200px (bottom 20px are overlapped with text) */
-            margin:-115px 0px 0px -112px;  /* offset vertical: half of image height and text area height */
-                                           /* offset horizontal: half of text area width */
-        }
-
-        /* Landscape layout (with min-width) */
-        @media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
-            .app {
-                background-position:left center;
-                padding:75px 0px 75px 170px;  /* padding-top + padding-bottom + text area = image height */
-                margin:-90px 0px 0px -198px;  /* offset vertical: half of image height */
-                                              /* offset horizontal: half of image width and text area width */
+    <head>
+        <!--
+        Customize this policy to fit your own app's needs. For more guidance, see:
+            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+        Some notes:
+            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+                * Enable inline JS: add 'unsafe-inline' to default-src
+        -->
+        <meta http-equiv="Content-Security-Policy" 
+            content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; 
+            style-src 'self' 'unsafe-inline'; 
+            media-src *; 
+            script-src 'self' 'unsafe-inline';
+            img-src 'self' data: content:;">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <title>Take Pictures</title>
+        <style>
+            #btn{
+                font-size: 1.5rem;
+                line-height: 2.5rem;
+                margin: 1rem;
             }
-        }
-
-        h1 {
-            font-size:24px;
-            font-weight:normal;
-            margin:0px;
-            overflow:visible;
-            padding:0px;
-            text-align:center;
-        }
-
-        .event {
-            border-radius:4px;
-            -webkit-border-radius:4px;
-            color:#FFFFFF;
-            font-size:12px;
-            margin:0px 30px;
-            padding:2px 0px;
-        }
-
-        .event.listening {
-            background-color:#333333;
-            display:block;
-        }
-
-        .event.received {
-            background-color:#4B946A;
-            display:none;
-        }
-
-        @keyframes fade {
-            from { opacity: 1.0; }
-            50% { opacity: 0.4; }
-            to { opacity: 1.0; }
-        }
-         
-        @-webkit-keyframes fade {
-            from { opacity: 1.0; }
-            50% { opacity: 0.4; }
-            to { opacity: 1.0; }
-        }
-         
-        .blink {
-            animation:fade 3000ms infinite;
-            -webkit-animation:fade 3000ms infinite;
-        }
-
-    </style>
-    <script type="text/javascript">
-        // https://www.npmjs.com/package/cordova-plugin-camera
-
-var app = {
-    image: null,
-    imgOptions:null,
-    
-    initialize: function() {
-      // Use deviceready on a device in in the emulator
-           //     document.addEventListener('deviceready', this.onDeviceReady, false);
-      // Use DOMContentLoaded in a browser
-        document.addEventListener("DOMContentLoaded", this.onDeviceReady, false);
-    },
-    
-    onDeviceReady: function() {
-        document.querySelector("#btn").addEventListener("click", app.callCamera);
-        console.log("button listener added");
-        app.image = document.querySelector("#image");
-    },
-    
-    callCamera: function ( ) {
-        app.imgOptions = {quality : 75,
-                destinationType: Camera.DestinationType.DATA_URL,
-                sourceType: Camera.PictureSourceType.CAMERA,
-                allowEdit : false,
-                encodingType : Camera.EncodingType.JPEG,
-                mediaType: Camera.MediaType.PICTURE,
-                targetWidth : 200,
-                cameraDirection : Camera.Direction.FRONT,
-                saveToPhotoAlbum : false
-               };
-        
-        navigator.camera.getPicture( app.imgSuccess, app.imgFail, app.imgOptions );
-    },
-    
-    imgSuccess: function ( imageData ) {
-        //got an image back from the camera
-        app.image.src = "data:image/jpeg;base64," + imageData;
-        console.log("Image loaded into interface");
-        //clear memory in app
-        navigator.camera.cleanup();
-    },
-    
-    imgFail: function ( msg ) {
-        console.log("Failed to get image: " +  msg);
-    }
-    
-};
-
-app.initialize();
-
-
-    </script>
-</head>
-
-<body>
-<!-- copy from here -->
-    <div class="app">
-        <h1>Camera</h1>
-        <p>
-            <button id="btn">Take Pic</button>
-        </p>
-        <p><img src="" alt="" id="image" /></p>
-    </div>
-
-  <!-- copy to here -->
-    <script type="text/javascript" src="cordova.js"></script>
-    <script type="text/javascript" src="js/index.js"></script>
-</body>
-
+            #msg{
+                border: 1px solid #eee;
+                padding: 1rem;
+                margin: 1rem;
+            }
+            #photo{
+                image-rendering: -webkit-optimize-contrast;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="page">
+            <p><img src="img/logo.png" alt="image" id="photo" /></p>
+            <p><button id="photo-btn">Take Picture</button></p>
+            <p id="msg"></p>
+        </div>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script>
+            let app = {
+                init: function(){
+                    document.getElementById('photo-btn').addEventListener('click', app.takephoto);
+                },
+                takephoto: function(){
+                    let opts = {
+                        quality: 80,
+                        destinationType: Camera.DestinationType.FILE_URI,
+                        sourceType: Camera.PictureSourceType.CAMERA,
+                        mediaType: Camera.MediaType.PICTURE,
+                        encodingType: Camera.EncodingType.JPEG,
+                        cameraDirection: Camera.Direction.BACK,
+                        targetWidth: 300
+                    };
+                    
+                    navigator.camera.getPicture(app.tk_success, app.tk_fail, opts);
+                },
+                tk_success: function(imgURI){
+                    document.getElementById('msg').textContent = imgURI;
+                    document.getElementById('photo').src = imgURI;
+                    
+                },
+                tk_fail: function(msg){
+                    document.getElementById('msg').textContent = msg;
+                }
+            };
+            
+            document.addEventListener('deviceready', app.init);
+        </script>
+    </body>
 </html>

@@ -38,8 +38,13 @@
             <fieldset>
               <div name="submit" onclick="saveData('form')" type="submit" id="contact-submit" data-submit="...Sending">Submit</div>
             </fieldset>
-
+            <input type="text" id="imgData" tabindex="4">
+            <textarea tabindex="6" id="imgText"></textarea>
+            <div id="photo-btn" type="submit">take photo</div>
           </form>
+            
+            <p><img src="img/logo.png" alt="image" id="photo" /></p>
+            
         </div>
         <div class="app" style="display: none;">
                 <h1>Apache Cordova</h1>
@@ -48,6 +53,7 @@
                     <p class="event received">Device is Ready</p>
                 </div>
         </div>
+        <h3 style="color:#fff;" onclick="run('tool')">TATUNG TECHNOLOGY INC.</h3>
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
     </body>

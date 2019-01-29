@@ -9,11 +9,13 @@ var app = {
 
     onDeviceReady: function() {        
         db = window.sqlitePlugin.openDatabase({ name: "my.db", location: 'default' });
+        
         this.receivedEvent('deviceready');        
     },
 
     // Update DOM on a Received Event
     receivedEvent: function(id) {
+
         var pageName = location.pathname;
         if(pageName.match("config")){
             loadData("config");
@@ -21,6 +23,8 @@ var app = {
             loadData("done");
         }else if(pageName.match("index")){
             run("chkDB");
+        }else if(pageName.match("form")){
+            document.getElementById('photo-btn').addEventListener('click', app.takephoto);
         }
         /*
         var parentElement = document.getElementById(id);
@@ -29,17 +33,41 @@ var app = {
 
         listeningElement.setAttribute('style', 'display:none;');
         receivedElement.setAttribute('style', 'display:block;');*/
-
         
+    },
+    takephoto: function(){
+        let opts = {
+            quality: 80,
+            destinationType: Camera.DestinationType.DATA_URL,
+            allowEdit:true,
+            sourceType: Camera.PictureSourceType.CAMERA,
+            mediaType: Camera.MediaType.PICTURE,
+            encodingType: Camera.EncodingType.JPEG,
+            correctOrientation:true,
+            cameraDirection: Camera.Direction.BACK,
+            popoverOptions: CameraPopoverOptions,
+            targetWidth: 500
+        };
+                    
+        navigator.camera.getPicture(app.tk_success, app.tk_fail, opts);
+    },
+    tk_success: function(imgData){
+        document.getElementById('imgData').value = imgData;
+        document.getElementById('photo').src = "data:image/jpeg;base64,"+imgData;
+                    
+    },
+    tk_fail: function(msg){
+        document.getElementById('imgData').value = msg;
     }
 };
 
 app.initialize();
-
 document.addEventListener("backbutton", onBackKeyDown, false);
 function onBackKeyDown() {
 
 }
+
+
 
 function createDB(type){
     db.transaction(function (tx) {
