@@ -25,15 +25,15 @@
         <edit-config file="*-Info.plist" mode="merge" target="NSCameraUsageDescription">
             <string>YOUR-PERMISSION-REQUEST</string>
         </edit-config>
-        <edit-config target="NSLocationWhenInUseUsageDescription" file="*-Info.plist" mode="merge" overwrite="true">
-          <string>YOUR-PERMISSION-REQUEST</string>
-         </edit-config>
-         <edit-config target="NSPhotoLibraryUsageDescription" file="*-Info.plist" mode="merge" overwrite="true" >
-              <string>YOUR-PERMISSION-REQUEST</string>
-         </edit-config>
-         <edit-config target="NSCameraUsageDescription" file="*-Info.plist" mode="merge" overwrite="true">
-              <string>YOUR-PERMISSION-REQUEST</string>
-         </edit-config>
+        <edit-config file="*-Info.plist" mode="merge" overwrite="true" target="NSLocationWhenInUseUsageDescription">
+            <string>YOUR-PERMISSION-REQUEST</string>
+        </edit-config>
+        <edit-config file="*-Info.plist" mode="merge" overwrite="true" target="NSPhotoLibraryUsageDescription">
+            <string>YOUR-PERMISSION-REQUEST</string>
+        </edit-config>
+        <edit-config file="*-Info.plist" mode="merge" overwrite="true" target="NSCameraUsageDescription">
+            <string>YOUR-PERMISSION-REQUEST</string>
+        </edit-config>
     </platform>
     <plugin name="cordova-plugin-device" spec="^2.0.2" />
     <plugin name="cordova-plugin-console" spec="^1.1.0" />
@@ -47,4 +47,7 @@
         <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value="YOUR-PERMISSION-REQUEST" />
     </plugin>
     <engine name="ios" spec="~4.5.5" />
+    <plugin name="cordova-plugin-camera" spec="^4.0.3">
+        <variable name="CAMERA_USAGE_DESCRIPTION" value="YOUR-PERMISSION-REQUEST" />
+    </plugin>
 </widget>

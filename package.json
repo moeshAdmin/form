@@ -33,6 +33,9 @@
                 "MICROPHONE_USAGE_DESCRIPTION": "YOUR-PERMISSION-REQUEST",
                 "PHOTOLIBRARY_ADD_USAGE_DESCRIPTION": "YOUR-PERMISSION-REQUEST",
                 "PHOTOLIBRARY_USAGE_DESCRIPTION": "YOUR-PERMISSION-REQUEST"
+            },
+            "cordova-plugin-camera": {
+                "CAMERA_USAGE_DESCRIPTION": "YOUR-PERMISSION-REQUEST"
             }
         },
         "platforms": [

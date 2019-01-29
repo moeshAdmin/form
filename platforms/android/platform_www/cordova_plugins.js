@@ -56,8 +56,8 @@ module.exports.metadata =
   "cordova-plugin-whitelist": "1.3.3",
   "cordova-plugin-console": "1.1.0",
   "cordova-sqlite-evcore-extbuild-free": "0.9.10",
-  "cordova-plugin-camera": "4.0.3",
-  "cordova-plugin-ios-camera-permissions": "1.2.0"
+  "cordova-plugin-ios-camera-permissions": "1.2.0",
+  "cordova-plugin-camera": "4.0.3"
 };
 // BOTTOM OF METADATA
 });
