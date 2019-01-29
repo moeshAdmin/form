@@ -29,4 +29,10 @@
     <engine name="android" spec="^7.1.4" />
     <engine name="ios" spec="^4.5.5" />
     <engine name="browser" spec="^5.0.4" />
+    <plugin name="cordova-plugin-ios-camera-permissions" spec="1.2.0">
+        <variable name="CAMERA_USAGE_DESCRIPTION" value="請允許相機" />
+        <variable name="MICROPHONE_USAGE_DESCRIPTION" value="允許麥克風" />
+        <variable name="PHOTOLIBRARY_ADD_USAGE_DESCRIPTION" value="允許存取相簿" />
+        <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value="允許存取相簿" />
+    </plugin>
 </widget>

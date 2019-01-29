@@ -18,6 +18,34 @@
             }
           ]
         }
+      },
+      "*-Info.plist": {
+        "parents": {
+          "NSCameraUsageDescription": [
+            {
+              "xml": "<string>請允許相機</string>",
+              "count": 1
+            }
+          ],
+          "NSMicrophoneUsageDescription": [
+            {
+              "xml": "<string>允許麥克風</string>",
+              "count": 1
+            }
+          ],
+          "NSPhotoLibraryAddUsageDescription": [
+            {
+              "xml": "<string>允許存取相簿</string>",
+              "count": 1
+            }
+          ],
+          "NSPhotoLibraryUsageDescription": [
+            {
+              "xml": "<string>允許存取相簿</string>",
+              "count": 1
+            }
+          ]
+        }
       }
     }
   },
@@ -29,6 +57,13 @@
       "PACKAGE_NAME": "com.tti.ttiep"
     },
     "cordova-sqlite-evcore-extbuild-free": {
+      "PACKAGE_NAME": "com.tti.ttiep"
+    },
+    "cordova-plugin-ios-camera-permissions": {
+      "CAMERA_USAGE_DESCRIPTION": "請允許相機",
+      "MICROPHONE_USAGE_DESCRIPTION": "允許麥克風",
+      "PHOTOLIBRARY_ADD_USAGE_DESCRIPTION": "允許存取相簿",
+      "PHOTOLIBRARY_USAGE_DESCRIPTION": "允許存取相簿",
       "PACKAGE_NAME": "com.tti.ttiep"
     }
   },
@@ -54,6 +89,7 @@
   "plugin_metadata": {
     "cordova-plugin-device": "2.0.2",
     "cordova-plugin-whitelist": "1.3.3",
-    "cordova-sqlite-evcore-extbuild-free": "0.9.10"
+    "cordova-sqlite-evcore-extbuild-free": "0.9.10",
+    "cordova-plugin-ios-camera-permissions": "1.2.0"
   }
 }
