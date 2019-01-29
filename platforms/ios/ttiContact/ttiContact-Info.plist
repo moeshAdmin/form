@@ -53,12 +53,12 @@
       <true/>
     </dict>
     <key>NSCameraUsageDescription</key>
-    <string>請允許相機</string>
+    <string>pleaseAllow</string>
     <key>NSMicrophoneUsageDescription</key>
-    <string>允許麥克風</string>
+    <string>YOUR-PERMISSION-REQUEST</string>
     <key>NSPhotoLibraryAddUsageDescription</key>
-    <string>允許存取相簿</string>
+    <string>YOUR-PERMISSION-REQUEST</string>
     <key>NSPhotoLibraryUsageDescription</key>
-    <string>允許存取相簿</string>
+    <string>YOUR-PERMISSION-REQUEST</string>
   </dict>
 </plist>

@@ -5,6 +5,40 @@
   },
   "config_munge": {
     "files": {
+      "*-Info.plist": {
+        "parents": {
+          "NSCameraUsageDescription": [
+            {
+              "xml": "<string>YOUR-PERMISSION-REQUEST</string>",
+              "count": 1
+            },
+            {
+              "xml": "<string>pleaseAllow</string>",
+              "count": 1,
+              "mode": "merge",
+              "id": "config.xml"
+            }
+          ],
+          "NSMicrophoneUsageDescription": [
+            {
+              "xml": "<string>YOUR-PERMISSION-REQUEST</string>",
+              "count": 1
+            }
+          ],
+          "NSPhotoLibraryAddUsageDescription": [
+            {
+              "xml": "<string>YOUR-PERMISSION-REQUEST</string>",
+              "count": 1
+            }
+          ],
+          "NSPhotoLibraryUsageDescription": [
+            {
+              "xml": "<string>YOUR-PERMISSION-REQUEST</string>",
+              "count": 1
+            }
+          ]
+        }
+      },
       "config.xml": {
         "parents": {
           "/*": [
@@ -26,34 +60,6 @@
             }
           ]
         }
-      },
-      "*-Info.plist": {
-        "parents": {
-          "NSCameraUsageDescription": [
-            {
-              "xml": "<string>請允許相機</string>",
-              "count": 1
-            }
-          ],
-          "NSMicrophoneUsageDescription": [
-            {
-              "xml": "<string>允許麥克風</string>",
-              "count": 1
-            }
-          ],
-          "NSPhotoLibraryAddUsageDescription": [
-            {
-              "xml": "<string>允許存取相簿</string>",
-              "count": 1
-            }
-          ],
-          "NSPhotoLibraryUsageDescription": [
-            {
-              "xml": "<string>允許存取相簿</string>",
-              "count": 1
-            }
-          ]
-        }
       }
     }
   },
@@ -65,10 +71,10 @@
       "PACKAGE_NAME": "com.tti.ttiep"
     },
     "cordova-plugin-ios-camera-permissions": {
-      "CAMERA_USAGE_DESCRIPTION": "請允許相機",
-      "MICROPHONE_USAGE_DESCRIPTION": "允許麥克風",
-      "PHOTOLIBRARY_ADD_USAGE_DESCRIPTION": "允許存取相簿",
-      "PHOTOLIBRARY_USAGE_DESCRIPTION": "允許存取相簿",
+      "CAMERA_USAGE_DESCRIPTION": "YOUR-PERMISSION-REQUEST",
+      "MICROPHONE_USAGE_DESCRIPTION": "YOUR-PERMISSION-REQUEST",
+      "PHOTOLIBRARY_ADD_USAGE_DESCRIPTION": "YOUR-PERMISSION-REQUEST",
+      "PHOTOLIBRARY_USAGE_DESCRIPTION": "YOUR-PERMISSION-REQUEST",
       "PACKAGE_NAME": "com.tti.ttiep"
     },
     "cordova-plugin-whitelist": {
