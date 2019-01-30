@@ -237,6 +237,9 @@ function saveData(type){
                 data[j] = strTime;
             }else if(field[j]=="imgData"){
                 data[j] = document.getElementById('photo').src;
+            }else if(field[j]=="lang"){
+                var e = document.getElementById("lang");
+                data[j] = e.options[e.selectedIndex].value;
             }else{
                 data[j] = document.getElementById(field[j]).value;
             }
