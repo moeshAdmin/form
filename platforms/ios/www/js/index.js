@@ -75,7 +75,7 @@ function createDB(type){
     db.transaction(function (tx) {
         if(type=="contact"){
             //建立contact db
-            tx.executeSql('CREATE TABLE IF NOT EXISTS contact_table (id integer PRIMARY KEY AUTOINCREMENT, name text, tel text,email text,title text,note text,dtime text,strtime text,area text,sales text,image64 blob,isUpdate text,uKey text,lang text)');
+            tx.executeSql('CREATE TABLE IF NOT EXISTS contact_table (id integer PRIMARY KEY AUTOINCREMENT, name text, tel text,email text,title text,note text,dtime text,strtime text,area text,sales text,image64 blob,isUpdate text,uKey text,lang text,com text)');
 
             db.executeSql('pragma table_info (contact_table)', [],
                 function (res) {
@@ -186,7 +186,7 @@ function query(type,data,callBack){
                 alert('Transaction ERROR: ' + error.message);
             });
         }else if(type=="formSave"){
-            tx.executeSql('INSERT INTO contact_table (name,email,tel,title,note,dtime,strtime,area,sales,image64,uKey,isUpdate,lang) VALUES ("'+data[0]+'", "'+data[1]+'", "'+data[2]+'", "'+data[3]+'", "'+data[4]+'", "'+data[5]+'", "'+data[6]+'", "'+data[7]+'", "'+data[8]+'", "'+data[9]+'", "'+data[10]+'","N", "'+data[11]+'")', [], 
+            tx.executeSql('INSERT INTO contact_table (name,email,tel,title,note,dtime,strtime,area,sales,image64,uKey,isUpdate,lang,com) VALUES ("'+data[0]+'", "'+data[1]+'", "'+data[2]+'", "'+data[3]+'", "'+data[4]+'", "'+data[5]+'", "'+data[6]+'", "'+data[7]+'", "'+data[8]+'", "'+data[9]+'", "'+data[10]+'","N", "'+data[11]+'", "'+data[12]+'")', [], 
                 function (tx, res) {
                     window.location = 'done.html?name='+data[0];
             }, function(error) {
@@ -223,7 +223,7 @@ function query(type,data,callBack){
 
 }
 
-var field = ['name','email','tel','title','note','time','strtime','area','sales','imgData','uKey','lang'];
+var field = ['name','email','tel','title','note','time','strtime','area','sales','imgData','uKey','lang','com'];
 var config = ['area','sales'];
 function saveData(type){
     if(type=="form"){

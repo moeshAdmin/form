@@ -55,6 +55,14 @@ module.exports = [
     "clobbers": [
       "SQLitePlugin"
     ]
+  },
+  {
+    "id": "cordova-plugin-ping.ping",
+    "file": "plugins/cordova-plugin-ping/www/ping.js",
+    "pluginId": "cordova-plugin-ping",
+    "clobbers": [
+      "Ping"
+    ]
   }
 ];
 module.exports.metadata = 
@@ -65,7 +73,8 @@ module.exports.metadata =
   "cordova-plugin-ios-camera-permissions": "1.2.0",
   "cordova-plugin-statusbar": "2.4.2",
   "cordova-plugin-whitelist": "1.3.3",
-  "cordova-sqlite-evcore-extbuild-free": "0.9.10"
+  "cordova-sqlite-evcore-extbuild-free": "0.9.10",
+  "cordova-plugin-ping": "0.3.1"
 };
 // BOTTOM OF METADATA
 });

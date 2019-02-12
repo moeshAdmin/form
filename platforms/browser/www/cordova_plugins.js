@@ -65,6 +65,14 @@ module.exports = [
         "id": "cordova-plugin-statusbar.StatusBarProxy",
         "pluginId": "cordova-plugin-statusbar",
         "runs": true
+    },
+    {
+        "file": "plugins/cordova-plugin-ping/www/ping.js",
+        "id": "cordova-plugin-ping.ping",
+        "pluginId": "cordova-plugin-ping",
+        "clobbers": [
+            "Ping"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -76,7 +84,8 @@ module.exports.metadata =
     "cordova-sqlite-evcore-extbuild-free": "0.9.10",
     "cordova-plugin-ios-camera-permissions": "1.2.0",
     "cordova-plugin-camera": "4.0.3",
-    "cordova-plugin-statusbar": "2.4.2"
+    "cordova-plugin-statusbar": "2.4.2",
+    "cordova-plugin-ping": "0.3.1"
 }
 // BOTTOM OF METADATA
 });

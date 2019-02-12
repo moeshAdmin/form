@@ -23,17 +23,11 @@ var app = {
             loadData("done");
         }else if(pageName.match("index")){
             run("chkDB");
+            run("ping");
         }else if(pageName.match("form")){
             document.getElementById('photo-btn').addEventListener('click', app.takephoto);
             loadData("area");
         }
-        /*
-        var parentElement = document.getElementById(id);
-        var listeningElement = parentElement.querySelector('.listening');
-        var receivedElement = parentElement.querySelector('.received');
-
-        listeningElement.setAttribute('style', 'display:none;');
-        receivedElement.setAttribute('style', 'display:block;');*/
         
     },
     takephoto: function(){
@@ -75,7 +69,7 @@ function createDB(type){
     db.transaction(function (tx) {
         if(type=="contact"){
             //建立contact db
-            tx.executeSql('CREATE TABLE IF NOT EXISTS contact_table (id integer PRIMARY KEY AUTOINCREMENT, name text, tel text,email text,title text,note text,dtime text,strtime text,area text,sales text,image64 blob,isUpdate text,uKey text,lang text)');
+            tx.executeSql('CREATE TABLE IF NOT EXISTS contact_table (id integer PRIMARY KEY AUTOINCREMENT, name text, tel text,email text,title text,note text,dtime text,strtime text,area text,sales text,image64 blob,isUpdate text,uKey text,lang text,com text)');
 
             db.executeSql('pragma table_info (contact_table)', [],
                 function (res) {
@@ -186,7 +180,7 @@ function query(type,data,callBack){
                 alert('Transaction ERROR: ' + error.message);
             });
         }else if(type=="formSave"){
-            tx.executeSql('INSERT INTO contact_table (name,email,tel,title,note,dtime,strtime,area,sales,image64,uKey,isUpdate,lang) VALUES ("'+data[0]+'", "'+data[1]+'", "'+data[2]+'", "'+data[3]+'", "'+data[4]+'", "'+data[5]+'", "'+data[6]+'", "'+data[7]+'", "'+data[8]+'", "'+data[9]+'", "'+data[10]+'","N", "'+data[11]+'")', [], 
+            tx.executeSql('INSERT INTO contact_table (name,email,tel,title,note,dtime,strtime,area,sales,image64,uKey,isUpdate,lang,com) VALUES ("'+data[0]+'", "'+data[1]+'", "'+data[2]+'", "'+data[3]+'", "'+data[4]+'", "'+data[5]+'", "'+data[6]+'", "'+data[7]+'", "'+data[8]+'", "'+data[9]+'", "'+data[10]+'","N", "'+data[11]+'", "'+data[12]+'")', [], 
                 function (tx, res) {
                     window.location = 'done.html?name='+data[0];
             }, function(error) {
@@ -223,7 +217,7 @@ function query(type,data,callBack){
 
 }
 
-var field = ['name','email','tel','title','note','time','strtime','area','sales','imgData','uKey','lang'];
+var field = ['name','email','tel','title','note','time','strtime','area','sales','imgData','uKey','lang','com'];
 var config = ['area','sales'];
 function saveData(type){
     if(type=="form"){
@@ -276,7 +270,7 @@ function loadData(type){
     }
 }
 
-function run(type){
+function run(type,callBack){
     var msg = '';
     if(type=="tool"){
         count++;
@@ -294,6 +288,23 @@ function run(type){
         query('test','',function(callBack){
             alert(callBack);
         });
+    }else if(type=="ping"){
+        document.getElementById("uploadArea").innerHTML = '<div type="btn" style="width:calc(100%);"><div class="btn-title">CHECKING...</div></div>';
+        var p, success, err, ipList;
+          ipList = [{query: '10.118.200.27', timeout: 1,retry: 3,version:'v4'}]
+          success = function (results) {
+            console.log(results[0].response.status);
+            document.getElementById('uploadArea').style.display = "";
+            if(results[0].response.status=="success"){
+                document.getElementById("uploadArea").innerHTML = '<div type="btn" style="width:calc(100%);" onclick="uploadData();"><div class="btn-icon"><img src="css/images/icons-svg/transfer.svg"></div><div class="btn-title">UPLOAD DB</div></div>';
+            }else{
+                document.getElementById("uploadArea").innerHTML = '<div type="btn" style="width:calc(100%);" onclick=run("ping")><div class="btn-icon"><img src="css/images/icons-svg/retry.svg"></div><div class="btn-title">NOT TTI NETWORK, CLICK RETRY</div></div>';
+                callBack('error');
+            }
+            
+          };
+          p = new Ping();
+          p.ping(ipList, success, err);
     }else{
         query('check','',function(callBack){
             cslog(callBack);
@@ -335,27 +346,32 @@ function getQueryVariable(variable) {
 }
 
 function uploadData() {
-  loadScreen("start");
-  //取出需上傳的資料
-  query('dumpData','', async function(sqlData){
-        loaderText('dumpData done');
-        if(sqlData.length>0){//如果沒資料上傳
-            for (var i = 0; i < sqlData.length; i++) {
-                await sleep(2000);
-                ajax(sqlData[i]);//一筆一筆資料上傳
-                loaderText('upload..'+(i+2)+'/'+sqlData.length);
-                if(i+1==sqlData.length){
-                    loadScreen("end");
-                    alert('upload done');
-                }
-            }
-        }else{
-            alert('no data need upload');
-            loadScreen("end");
-            return;
+    //再次確認在內網環境才執行上傳
+    run("ping",function(status){
+        if(status=="error"){
+            alert('TTI-EP CONNECTION FAIL, TRY AGAIN LATER');
         }
     });
-  
+    loadScreen("start");
+    //取出需上傳的資料
+            query('dumpData','', async function(sqlData){
+                loaderText('dumpData done');
+                if(sqlData.length>0){//如果沒資料上傳
+                    for (var i = 0; i < sqlData.length; i++) {
+                        await sleep(2000);
+                        ajax(sqlData[i]);//一筆一筆資料上傳
+                        loaderText('upload..'+(i+2)+'/'+sqlData.length);
+                        if(i+1==sqlData.length){
+                            loadScreen("end");
+                            alert('upload finish');
+                        }
+                    }
+                }else{
+                    alert('no data need upload');
+                    loadScreen("end");
+                    return;
+                }
+            });
 }
 
 function loadScreen(type){
