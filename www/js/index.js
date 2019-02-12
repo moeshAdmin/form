@@ -289,25 +289,8 @@ function run(type,callBack){
             alert(callBack);
         });
     }else if(type=="ping"){
-        console.log('start ping');
-        document.getElementById("uploadArea").innerHTML = '<div type="btn" style="width:calc(100%);"><div class="btn-title">CHECKING...</div></div>';
-        var xhttp3 = new XMLHttpRequest();
-
-        xhttp3.open("GET", "http://10.118.200.27");  
-        xhttp3.setRequestHeader("Content-type", "application/json; charset=utf-8");
-        xhttp3.timeout = 1000;
-        xhttp3.ontimeout = function () { 
-            document.getElementById("uploadArea").innerHTML = '<div type="btn" style="width:calc(100%);" onclick=run("ping")><div class="btn-icon"><img src="css/images/icons-svg/retry.svg"></div><div class="btn-title">NOT TTI NETWORK, CLICK RETRY</div></div>';
-            alert('TTI-EP CONNECTION FAIL, TRY AGAIN LATER');
-        }
-        xhttp3.addEventListener("load", function(){
-            document.getElementById("uploadArea").innerHTML = '<div type="btn" style="width:calc(100%);" onclick="uploadData();"><div class="btn-icon"><img src="css/images/icons-svg/transfer.svg"></div><div class="btn-title">UPLOAD DB</div></div>';
-        });
-        xhttp3.addEventListener("error", function(){
-            document.getElementById("uploadArea").innerHTML = '<div type="btn" style="width:calc(100%);" onclick=run("ping")><div class="btn-icon"><img src="css/images/icons-svg/retry.svg"></div><div class="btn-title">NOT TTI NETWORK, CLICK RETRY</div></div>';
-            alert('TTI-EP CONNECTION FAIL, TRY AGAIN LATER');
-        });
-        xhttp3.send(null);
+        //找不到好的方法 暫時先抽掉
+        document.getElementById("uploadArea").innerHTML = '<div type="btn" style="width:calc(100%);" onclick="uploadData();"><div class="btn-icon"><img src="css/images/icons-svg/transfer.svg"></div><div class="btn-title">UPLOAD DB</div></div>';
 
     }else{
         query('check','',function(callBack){
@@ -349,16 +332,6 @@ function getQueryVariable(variable) {
 
 function uploadData() {
     //再次確認在內網環境才執行上傳
-    var xhttp2 = new XMLHttpRequest();
-
-        xhttp2.open("GET", "http://10.118.200.27");  
-        xhttp2.timeout = 1000;
-        xhttp2.ontimeout = function () { 
-            document.getElementById("uploadArea").innerHTML = '<div type="btn" style="width:calc(100%);" onclick=run("ping")><div class="btn-icon"><img src="css/images/icons-svg/retry.svg"></div><div class="btn-title">NOT TTI NETWORK, CLICK RETRY</div></div>';
-            alert('TTI-EP CONNECTION FAIL, TRY AGAIN LATER');
-        }
-        xhttp2.addEventListener("load", function(){
-            document.getElementById("uploadArea").innerHTML = '<div type="btn" style="width:calc(100%);" onclick="uploadData();"><div class="btn-icon"><img src="css/images/icons-svg/transfer.svg"></div><div class="btn-title">UPLOAD DB</div></div>';
             loadScreen("start");
             query('dumpData','', async function(sqlData){
                 loaderText('dumpData done');
@@ -378,12 +351,6 @@ function uploadData() {
                     return;
                 }
             });
-        });
-        xhttp2.addEventListener("error", function(){
-            document.getElementById("uploadArea").innerHTML = '<div type="btn" style="width:calc(100%);" onclick=run("ping")><div class="btn-icon"><img src="css/images/icons-svg/retry.svg"></div><div class="btn-title">NOT TTI NETWORK, CLICK RETRY</div></div>';
-            alert('TTI-EP CONNECTION FAIL, TRY AGAIN LATER');
-        });
-        xhttp2.send(null);
     
     //取出需上傳的資料
 
