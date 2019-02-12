@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Tue Feb 12 12:12:45 CST 2019
+#Tue Feb 12 14:27:07 CST 2019
 20.base=D\:\\cordova\\platforms\\android\\app\\build\\intermediates\\assets\\debug
 143.base=D\:\\cordova\\platforms\\android\\app\\build\\intermediates\\assets\\debug
 237.path=www/sqlite/scripts/jquery-1.8.0.min.js
