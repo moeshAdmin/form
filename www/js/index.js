@@ -274,7 +274,7 @@ function run(type,callBack){
     var msg = '';
     if(type=="tool"){
         count++;
-        if(count>5){
+        if(count>2){
             var text = prompt('Quest?','');
             if (text != null && text == "ttiep") {
                 window.location = 'index.html';
@@ -369,7 +369,7 @@ function loadScreen(type){
 
 function ajax(sendData){
     var xhttp = new XMLHttpRequest();
-    xhttp.open("POST", "https://10.118.200.27/ep/tools/app_receive", true);  
+    xhttp.open("POST", "https://tti-ep.tti.tv/ep/tools/app_receive", true);  
     var json_upload = "json=" + JSON.stringify(sendData);
     xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     xhttp.send(json_upload);
