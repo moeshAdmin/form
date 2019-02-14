@@ -222,7 +222,7 @@ var config = ['area','sales'];
 function saveData(type){
     if(type=="form"){
         var today=new Date();
-        var strTime = today.getTime();
+        var strTime = today.getTime().toString();
         var data = [];
         for (var j = 0; j < field.length; j++) {
             if(field[j]=="time"){
@@ -263,6 +263,10 @@ function loadData(type){
         document.getElementById("user").innerHTML = name;
     }else if(type=="area"){
         query('configRead','',function(data){
+            if(data['vl2']==""){
+                alert("SALES NOT SET! DO [DB CONFIG] FIRST!");
+                window.location = 'config.html';
+            }
             document.getElementById("area").value = data['vl1'];
             document.getElementById("sales").value = data['vl2'];
             document.getElementById("uKey").value = data['vl3'];
@@ -274,7 +278,7 @@ function run(type,callBack){
     var msg = '';
     if(type=="tool"){
         count++;
-        if(count>5){
+        if(count>2){
             var text = prompt('Quest?','');
             if (text != null && text == "ttiep") {
                 window.location = 'index.html';
