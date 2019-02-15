@@ -102,10 +102,10 @@ function query(type,data,callBack){
         if(type=="select"){
             tx.executeSql("select id,name,isUpdate from contact_table order by id desc", [], 
                 function (tx, res) {
-                    var strMsg = "目前共有 " + res.rows.length + " 資料\r\n";
+                    var strMsg = "Total: " + res.rows.length + " data\r\n";
                     //利用for迴圈，將所有取得的資料印出
                     for (var i = 0; i < res.rows.length; i++) {
-                        strMsg += "ID:" + res.rows.item(i)["id"] + " 姓名：" + res.rows.item(i)["name"] + " 編號：" + res.rows.item(i)["tel"] + res.rows.item(i)["email"] + res.rows.item(i)["isUpdate"] + "\r\n";
+                        strMsg += "ID:" + res.rows.item(i)["id"] + " isUpload：" + res.rows.item(i)["isUpdate"] + "\r\n";
                     }
                     alert(strMsg);
             }, function(error) {
