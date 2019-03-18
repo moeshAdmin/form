@@ -373,7 +373,7 @@ function loadScreen(type){
 
 function ajax(sendData){
     var xhttp = new XMLHttpRequest();
-    xhttp.open("POST", "https://tti-ep.tti.tv/ep/tools/app_receive", true);  
+    xhttp.open("POST", "https://tti-ep.tti.tv:8111/ep/tools/app_receive?code=ttiep123", true);  
     var json_upload = "json=" + JSON.stringify(sendData);
     xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     xhttp.send(json_upload);
