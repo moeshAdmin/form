@@ -263,7 +263,7 @@ function loadData(type){
         document.getElementById("user").innerHTML = name;
     }else if(type=="area"){
         query('configRead','',function(data){
-            if(data['vl2']==""){
+            if(data['vl2']==""||data['vl1']==""){
                 alert("SALES NOT SET! DO [DB CONFIG] FIRST!");
                 window.location = 'config.html';
             }
