@@ -63,6 +63,22 @@ module.exports = [
     "clobbers": [
       "Ping"
     ]
+  },
+  {
+    "id": "cordova-plugin-appcenter-shared.AppCenter",
+    "file": "plugins/cordova-plugin-appcenter-shared/www/AppCenter.js",
+    "pluginId": "cordova-plugin-appcenter-shared",
+    "clobbers": [
+      "AppCenter"
+    ]
+  },
+  {
+    "id": "cordova-plugin-appcenter-analytics.Analytics",
+    "file": "plugins/cordova-plugin-appcenter-analytics/www/Analytics.js",
+    "pluginId": "cordova-plugin-appcenter-analytics",
+    "clobbers": [
+      "AppCenter.Analytics"
+    ]
   }
 ];
 module.exports.metadata = 
@@ -75,7 +91,9 @@ module.exports.metadata =
   "cordova-plugin-statusbar": "2.4.2",
   "cordova-plugin-whitelist": "1.3.3",
   "cordova-sqlite-evcore-extbuild-free": "0.9.10",
-  "cordova-plugin-ping": "0.3.1"
+  "cordova-plugin-ping": "0.3.1",
+  "cordova-plugin-appcenter-shared": "0.3.3",
+  "cordova-plugin-appcenter-analytics": "0.3.3"
 };
 // BOTTOM OF METADATA
 });

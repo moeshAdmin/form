@@ -42,7 +42,8 @@
               "xml": "<string>YOUR-PERMISSION-REQUEST</string>",
               "count": 1
             }
-          ]
+          ],
+          "UIBackgroundModes": []
         }
       },
       "config.xml": {
@@ -77,6 +78,16 @@
               "count": 1
             }
           ]
+        }
+      },
+      "*-Debug.plist": {
+        "parents": {
+          "aps-environment": []
+        }
+      },
+      "*-Release.plist": {
+        "parents": {
+          "aps-environment": []
         }
       }
     }

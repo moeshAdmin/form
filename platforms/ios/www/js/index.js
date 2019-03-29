@@ -23,17 +23,11 @@ var app = {
             loadData("done");
         }else if(pageName.match("index")){
             run("chkDB");
+            run("ping");
         }else if(pageName.match("form")){
             document.getElementById('photo-btn').addEventListener('click', app.takephoto);
             loadData("area");
         }
-        /*
-        var parentElement = document.getElementById(id);
-        var listeningElement = parentElement.querySelector('.listening');
-        var receivedElement = parentElement.querySelector('.received');
-
-        listeningElement.setAttribute('style', 'display:none;');
-        receivedElement.setAttribute('style', 'display:block;');*/
         
     },
     takephoto: function(){
@@ -108,10 +102,10 @@ function query(type,data,callBack){
         if(type=="select"){
             tx.executeSql("select id,name,isUpdate from contact_table order by id desc", [], 
                 function (tx, res) {
-                    var strMsg = "目前共有 " + res.rows.length + " 資料\r\n";
+                    var strMsg = "Total: " + res.rows.length + " data\r\n";
                     //利用for迴圈，將所有取得的資料印出
                     for (var i = 0; i < res.rows.length; i++) {
-                        strMsg += "ID:" + res.rows.item(i)["id"] + " 姓名：" + res.rows.item(i)["name"] + " 編號：" + res.rows.item(i)["tel"] + res.rows.item(i)["email"] + res.rows.item(i)["isUpdate"] + "\r\n";
+                        strMsg += "ID:" + res.rows.item(i)["id"] + " isUpload：" + res.rows.item(i)["isUpdate"] + "\r\n";
                     }
                     alert(strMsg);
             }, function(error) {
@@ -228,7 +222,7 @@ var config = ['area','sales'];
 function saveData(type){
     if(type=="form"){
         var today=new Date();
-        var strTime = today.getTime();
+        var strTime = today.getTime().toString();
         var data = [];
         for (var j = 0; j < field.length; j++) {
             if(field[j]=="time"){
@@ -269,6 +263,10 @@ function loadData(type){
         document.getElementById("user").innerHTML = name;
     }else if(type=="area"){
         query('configRead','',function(data){
+            if(data['vl2']==""||data['vl1']==""){
+                alert("SALES NOT SET! DO [DB CONFIG] FIRST!");
+                window.location = 'config.html';
+            }
             document.getElementById("area").value = data['vl1'];
             document.getElementById("sales").value = data['vl2'];
             document.getElementById("uKey").value = data['vl3'];
@@ -276,11 +274,11 @@ function loadData(type){
     }
 }
 
-function run(type){
+function run(type,callBack){
     var msg = '';
     if(type=="tool"){
         count++;
-        if(count>5){
+        if(count>2){
             var text = prompt('Quest?','');
             if (text != null && text == "ttiep") {
                 window.location = 'index.html';
@@ -294,6 +292,10 @@ function run(type){
         query('test','',function(callBack){
             alert(callBack);
         });
+    }else if(type=="ping"){
+        //找不到好的方法 暫時先抽掉
+        document.getElementById("uploadArea").innerHTML = '<div type="btn" style="width:calc(100%);" onclick="uploadData();"><div class="btn-icon"><img src="css/images/icons-svg/transfer.svg"></div><div class="btn-title">UPLOAD DB</div></div>';
+
     }else{
         query('check','',function(callBack){
             cslog(callBack);
@@ -321,8 +323,6 @@ function cslog(msg){
     console.log("ttiep-msg: "+msg);
 }
 
-
-
 function getQueryVariable(variable) {
   var query = window.location.search.substring(1);
   var vars = query.split("&");
@@ -335,27 +335,30 @@ function getQueryVariable(variable) {
 }
 
 function uploadData() {
-  loadScreen("start");
-  //取出需上傳的資料
-  query('dumpData','', async function(sqlData){
-        loaderText('dumpData done');
-        if(sqlData.length>0){//如果沒資料上傳
-            for (var i = 0; i < sqlData.length; i++) {
-                await sleep(2000);
-                ajax(sqlData[i]);//一筆一筆資料上傳
-                loaderText('upload..'+(i+2)+'/'+sqlData.length);
-                if(i+1==sqlData.length){
+    //再次確認在內網環境才執行上傳
+            loadScreen("start");
+            query('dumpData','', async function(sqlData){
+                loaderText('dumpData done');
+                if(sqlData.length>0){//如果沒資料上傳
+                    for (var i = 0; i < sqlData.length; i++) {
+                        await sleep(1000);
+                        ajax(sqlData[i]);//一筆一筆資料上傳
+                        loaderText('upload..'+(i+2)+'/'+sqlData.length);
+                        if(i+1==sqlData.length){
+                            loadScreen("end");
+                            alert('upload finish');
+                        }
+                    }
+                }else{
+                    alert('no data need upload');
                     loadScreen("end");
-                    alert('upload done');
+                    return;
                 }
-            }
-        }else{
-            alert('no data need upload');
-            loadScreen("end");
-            return;
-        }
-    });
-  
+            });
+    
+    //取出需上傳的資料
+
+            
 }
 
 function loadScreen(type){
@@ -370,7 +373,7 @@ function loadScreen(type){
 
 function ajax(sendData){
     var xhttp = new XMLHttpRequest();
-    xhttp.open("POST", "https://tti-ep.tti.tv/ep/tools/app_receive", true);  
+    xhttp.open("POST", "https://tti-ep.tti.tv:8111/ep/tools/app_receive?code=ttiep123", true);  
     var json_upload = "json=" + JSON.stringify(sendData);
     xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     xhttp.send(json_upload);

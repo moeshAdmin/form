@@ -4,8 +4,8 @@
   "name": "ttiContact",
   "short_name": "ttiContact",
   "version": "com.tti.ttiep",
-  "description": "A sample Apache Cordova application that responds to the deviceready event.",
-  "author": "Apache Cordova Team",
+  "description": "ttiContact",
+  "author": "tti-ep",
   "icons": [],
   "start_url": "index.html"
 }
