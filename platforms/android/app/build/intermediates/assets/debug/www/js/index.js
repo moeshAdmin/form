@@ -10,7 +10,8 @@ var app = {
     onDeviceReady: function() {        
         db = window.sqlitePlugin.openDatabase({ name: "my.db", location: 'default' });
         
-        this.receivedEvent('deviceready');        
+        this.receivedEvent('deviceready');    
+        run('ota');
     },
 
     // Update DOM on a Received Event
@@ -296,6 +297,28 @@ function run(type,callBack){
         //找不到好的方法 暫時先抽掉
         document.getElementById("uploadArea").innerHTML = '<div type="btn" style="width:calc(100%);" onclick="uploadData();"><div class="btn-icon"><img src="css/images/icons-svg/transfer.svg"></div><div class="btn-title">UPLOAD DB</div></div>';
 
+    }else if(type=="ota"){
+        let chcp = window.chcp;
+        // 檢測更新
+        chcp.fetchUpdate((error, data) => {
+          if (error) {
+            console.log('--更新版本異常，或其他錯誤--', error.code, error.description);
+            if (error.code === -2) {
+              var dialogMessage = '有新的版本是否下載';
+              //呼叫升級提示框 點選確認會跳轉對應商店升級
+              chcp.requestApplicationUpdate(dialogMessage, null, null);
+            }
+          }
+          // 伺服器版本資訊
+          // console.log('--更新的版本資訊--', data.config);
+          // 版本資訊
+          chcp.getVersionInfo((err, data) => {
+            alert(data.readyToInstallWebVersion+','+data.currentWebVersion+','+data.appVersion);
+            console.log('伺服器應用時間版本: ' + data.readyToInstallWebVersion);
+            console.log('當前應用時間版本： ' + data.currentWebVersion);
+            console.log('當前應用version name: ' + data.appVersion);
+          });
+        });
     }else{
         query('check','',function(callBack){
             cslog(callBack);

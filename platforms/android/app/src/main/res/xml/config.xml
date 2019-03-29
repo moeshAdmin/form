@@ -39,6 +39,12 @@
     <allow-intent href="sms:*" />
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
+    <chcp>
+        <auto-download enabled="true" />
+        <auto-install enabled="true" />
+        <native-interface version="1" />
+        <config-file url="https://tti-ep.tti.tv/ota/ttiep/www/chcp.json" />
+    </chcp>
     <allow-intent href="market:*" />
     <icon density="ldpi" src="res/icon/android/mipmap-mdpi.png" />
     <icon density="mdpi" src="res/icon/android/mipmap-mdpi.png" />
