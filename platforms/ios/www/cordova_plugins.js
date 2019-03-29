@@ -63,6 +63,14 @@ module.exports = [
     "clobbers": [
       "Ping"
     ]
+  },
+  {
+    "id": "cordova-hot-code-push-plugin.chcp",
+    "file": "plugins/cordova-hot-code-push-plugin/www/chcp.js",
+    "pluginId": "cordova-hot-code-push-plugin",
+    "clobbers": [
+      "chcp"
+    ]
   }
 ];
 module.exports.metadata = 
@@ -74,7 +82,8 @@ module.exports.metadata =
   "cordova-plugin-statusbar": "2.4.2",
   "cordova-plugin-whitelist": "1.3.3",
   "cordova-sqlite-evcore-extbuild-free": "0.9.10",
-  "cordova-plugin-ping": "0.3.1"
+  "cordova-plugin-ping": "0.3.1",
+  "cordova-hot-code-push-plugin": "1.5.3"
 };
 // BOTTOM OF METADATA
 });

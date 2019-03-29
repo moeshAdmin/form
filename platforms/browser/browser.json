@@ -15,6 +15,10 @@
             {
               "xml": "<feature name=\"Camera\"><param name=\"browser-package\" value=\"Camera\" /></feature>",
               "count": 1
+            },
+            {
+              "xml": "<preference name=\"loadUrlTimeoutValue\" value=\"60000\" />",
+              "count": 1
             }
           ]
         }
@@ -44,6 +48,9 @@
       "PACKAGE_NAME": "com.tti.ttiep"
     },
     "cordova-plugin-ping": {
+      "PACKAGE_NAME": "com.tti.ttiep"
+    },
+    "cordova-hot-code-push-plugin": {
       "PACKAGE_NAME": "com.tti.ttiep"
     }
   },
@@ -122,6 +129,14 @@
       "clobbers": [
         "Ping"
       ]
+    },
+    {
+      "file": "plugins/cordova-hot-code-push-plugin/www/chcp.js",
+      "id": "cordova-hot-code-push-plugin.chcp",
+      "pluginId": "cordova-hot-code-push-plugin",
+      "clobbers": [
+        "chcp"
+      ]
     }
   ],
   "plugin_metadata": {
@@ -132,6 +147,7 @@
     "cordova-plugin-ios-camera-permissions": "1.2.0",
     "cordova-plugin-camera": "4.0.3",
     "cordova-plugin-statusbar": "2.4.2",
-    "cordova-plugin-ping": "0.3.1"
+    "cordova-plugin-ping": "0.3.1",
+    "cordova-hot-code-push-plugin": "1.5.3"
   }
 }

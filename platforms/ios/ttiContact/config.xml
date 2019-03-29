@@ -32,6 +32,10 @@
     <feature name="SQLitePlugin">
         <param name="ios-package" value="SQLitePlugin" />
     </feature>
+    <feature name="HotCodePush">
+        <param name="ios-package" value="HCPPlugin" />
+        <param name="onload" value="true" />
+    </feature>
     <name>ttiContact</name>
     <description>
         ttiContact
@@ -91,6 +95,7 @@
     <preference name="PaginationBreakingMode" value="page" />
     <preference name="PaginationMode" value="unpaginated" />
     <preference name="CameraUsesGeolocation" value="false" />
+    <preference name="loadUrlTimeoutValue" value="60000" />
     <preference name="StatusBarOverlaysWebView" value="true" />
     <preference name="StatusBarBackgroundColor" value="#002938" />
     <preference name="StatusBarStyle" value="lightcontent" />

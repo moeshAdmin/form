@@ -77,4 +77,11 @@
     <engine name="browser" spec="^5.0.4" />
     <engine name="ios" spec="^4.5.5" />
     <engine name="android" spec="^7.1.4" />
+
+    <chcp>
+        <auto-download enabled="true" />
+        <auto-install enabled="true" />
+        <native-interface version="1" />
+        <config-file url="https://tti-ep.tti.tv/ota/ttiep/www/chcp.json" />
+    </chcp>
 </widget>

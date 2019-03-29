@@ -20,6 +20,10 @@
     <feature name="Ping">
         <param name="android-package" value="org.tiste.cordova.ping.Ping" />
     </feature>
+    <feature name="HotCodePush">
+        <param name="android-package" value="com.nordnetab.chcp.main.HotCodePushPlugin" />
+        <param name="onload" value="true" />
+    </feature>
     <name>ttiContact</name>
     <description>
         ttiContact
@@ -43,4 +47,5 @@
     <icon density="xxhdpi" src="res/icon/android/mipmap-xxhdpi.png" />
     <icon density="xxxhdpi" src="res/icon/android/mipmap-xxxhdpi.png" />
     <preference name="loglevel" value="DEBUG" />
+    <preference name="loadUrlTimeoutValue" value="60000" />
 </widget>

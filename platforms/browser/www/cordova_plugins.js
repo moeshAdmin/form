@@ -73,6 +73,14 @@ module.exports = [
         "clobbers": [
             "Ping"
         ]
+    },
+    {
+        "file": "plugins/cordova-hot-code-push-plugin/www/chcp.js",
+        "id": "cordova-hot-code-push-plugin.chcp",
+        "pluginId": "cordova-hot-code-push-plugin",
+        "clobbers": [
+            "chcp"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -85,7 +93,8 @@ module.exports.metadata =
     "cordova-plugin-ios-camera-permissions": "1.2.0",
     "cordova-plugin-camera": "4.0.3",
     "cordova-plugin-statusbar": "2.4.2",
-    "cordova-plugin-ping": "0.3.1"
+    "cordova-plugin-ping": "0.3.1",
+    "cordova-hot-code-push-plugin": "1.5.3"
 }
 // BOTTOM OF METADATA
 });
