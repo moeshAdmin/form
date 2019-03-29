@@ -9,9 +9,9 @@ var app = {
 
     onDeviceReady: function() {        
         db = window.sqlitePlugin.openDatabase({ name: "my.db", location: 'default' });
-        
-        this.receivedEvent('deviceready');    
         run('ota');
+        this.receivedEvent('deviceready');    
+        
     },
 
     // Update DOM on a Received Event
