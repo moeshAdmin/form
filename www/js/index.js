@@ -298,11 +298,13 @@ function run(type,callBack){
         document.getElementById("uploadArea").innerHTML = '<div type="btn" style="width:calc(100%);" onclick="uploadData();"><div class="btn-icon"><img src="css/images/icons-svg/transfer.svg"></div><div class="btn-title">UPLOAD DB</div></div>';
 
     }else if(type=="ota"){
+        alert('ota check start');
         let chcp = window.chcp;
         // 檢測更新
         chcp.fetchUpdate((error, data) => {
+            alert('fee update');
           if (error) {
-            console.log('--更新版本異常，或其他錯誤--', error.code, error.description);
+            alert('--更新版本異常，或其他錯誤--'+error.code+error.description);
             if (error.code === -2) {
               var dialogMessage = '有新的版本是否下載';
               //呼叫升級提示框 點選確認會跳轉對應商店升級
