@@ -82,6 +82,6 @@
         <auto-download enabled="true" />
         <auto-install enabled="true" />
         <native-interface version="1" />
-        <config-file url="http://tti-ep.tti.tv/ota/ttiep/www/chcp.json" />
+        <config-file url="http://tti-ep.tti.tv:8112/ota/ttiep/www/chcp.json" />
     </chcp>
 </widget>

@@ -9,7 +9,6 @@ var app = {
 
     onDeviceReady: function() {        
         db = window.sqlitePlugin.openDatabase({ name: "my.db", location: 'default' });
-        run('ota');
         this.receivedEvent('deviceready');    
         
     },
@@ -313,12 +312,14 @@ function run(type,callBack){
           // console.log('--更新的版本資訊--', data.config);
           // 版本資訊
           chcp.getVersionInfo((err, data) => {
-            alert(data.readyToInstallWebVersion+','+data.currentWebVersion+','+data.appVersion);
+            alert('new--'+data.readyToInstallWebVersion+','+data.currentWebVersion+','+data.appVersion);
+            console.log(data);
             console.log('伺服器應用時間版本: ' + data.readyToInstallWebVersion);
             console.log('當前應用時間版本： ' + data.currentWebVersion);
             console.log('當前應用version name: ' + data.appVersion);
           });
         });
+        ajax2();
     }else{
         query('check','',function(callBack){
             cslog(callBack);
@@ -411,6 +412,16 @@ function ajax(sendData){
           document.getElementById("loading-bg").style.display = "none";
           alert("ERROR:"+this.readyState+"-"+this.status);
         }
+      };
+}
+
+function ajax2(){
+    var xhttp = new XMLHttpRequest();
+    xhttp.open("POST", "http://tti-ep.tti.tv:8112/ota/ttiep/www/chcp.json", true);  
+    xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    xhttp.send();
+      xhttp.onreadystatechange = function() {
+        console.log(xhttp.responseText);
       };
 }
 
