@@ -3,6 +3,6 @@
   "ios_identifier": "",
   "android_identifier": "com.tti.ttiep",
   "update": "start",
-  "content_url": "http://tti-ep.tti.tv:8112/ota/ttiep/www",
-  "release": "2019.04.02-15.07.53"
+  "content_url": "https://tti-ep.tti.tv:8111/ota/ttiep/www",
+  "release": "2019.04.02-16.02.56"
 }
