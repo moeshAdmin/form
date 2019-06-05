@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.tti.ttiep" version="1.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="com.tti.ttiep" version="1.0.2" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>ttiContact</name>
     <description>
         ttiContact
@@ -76,12 +76,5 @@
     <plugin name="cordova-plugin-ping" spec="^0.4.0" />
     <engine name="browser" spec="^5.0.4" />
     <engine name="ios" spec="^4.5.5" />
-    <engine name="android" spec="^7.1.4" />
 
-    <chcp>
-        <auto-download enabled="true" />
-        <auto-install enabled="true" />
-        <native-interface version="1" />
-        <config-file url="https://tti-ep.tti.tv:8111/ota/ttiep/www/chcp.json" />
-    </chcp>
 </widget>

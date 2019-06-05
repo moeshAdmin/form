@@ -1,10 +1,13 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.tti.ttiep" version="1.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="com.tti.ttiep" version="1.0.2" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <feature name="Camera">
         <param name="android-package" value="org.apache.cordova.camera.CameraLauncher" />
     </feature>
     <feature name="Device">
         <param name="android-package" value="org.apache.cordova.device.Device" />
+    </feature>
+    <feature name="Ping">
+        <param name="android-package" value="org.tiste.cordova.ping.Ping" />
     </feature>
     <feature name="StatusBar">
         <param name="android-package" value="org.apache.cordova.statusbar.StatusBar" />
@@ -17,11 +20,22 @@
     <feature name="SQLitePlugin">
         <param name="android-package" value="io.sqlc.SQLitePlugin" />
     </feature>
-    <feature name="Ping">
-        <param name="android-package" value="org.tiste.cordova.ping.Ping" />
+    <feature name="Notification">
+        <param name="android-package" value="org.apache.cordova.dialogs.Notification" />
     </feature>
-    <feature name="HotCodePush">
-        <param name="android-package" value="com.nordnetab.chcp.main.HotCodePushPlugin" />
+    <feature name="File">
+        <param name="android-package" value="org.apache.cordova.file.FileUtils" />
+        <param name="onload" value="true" />
+    </feature>
+    <allow-navigation href="cdvfile:*" />
+    <feature name="FileTransfer">
+        <param name="android-package" value="org.apache.cordova.filetransfer.FileTransfer" />
+    </feature>
+    <feature name="Zip">
+        <param name="android-package" value="org.apache.cordova.Zip" />
+    </feature>
+    <feature name="CodePush">
+        <param name="android-package" value="com.microsoft.cordova.CodePush" />
         <param name="onload" value="true" />
     </feature>
     <name>ttiContact</name>
@@ -39,12 +53,6 @@
     <allow-intent href="sms:*" />
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
-    <chcp>
-        <auto-download enabled="true" />
-        <auto-install enabled="true" />
-        <native-interface version="1" />
-        <config-file url="https://tti-ep.tti.tv:8111/ota/ttiep/www/chcp.json" />
-    </chcp>
     <allow-intent href="market:*" />
     <icon density="ldpi" src="res/icon/android/mipmap-mdpi.png" />
     <icon density="mdpi" src="res/icon/android/mipmap-mdpi.png" />
@@ -53,5 +61,4 @@
     <icon density="xxhdpi" src="res/icon/android/mipmap-xxhdpi.png" />
     <icon density="xxxhdpi" src="res/icon/android/mipmap-xxxhdpi.png" />
     <preference name="loglevel" value="DEBUG" />
-    <preference name="loadUrlTimeoutValue" value="60000" />
 </widget>

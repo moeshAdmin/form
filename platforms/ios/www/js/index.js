@@ -5,12 +5,12 @@ var app = {
     // Application Constructor
     initialize: function() {
         document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);
+
     },
 
     onDeviceReady: function() {        
         db = window.sqlitePlugin.openDatabase({ name: "my.db", location: 'default' });
-        
-        this.receivedEvent('deviceready');        
+        this.receivedEvent('deviceready');    
     },
 
     // Update DOM on a Received Event
@@ -296,6 +296,8 @@ function run(type,callBack){
         //找不到好的方法 暫時先抽掉
         document.getElementById("uploadArea").innerHTML = '<div type="btn" style="width:calc(100%);" onclick="uploadData();"><div class="btn-icon"><img src="css/images/icons-svg/transfer.svg"></div><div class="btn-title">UPLOAD DB</div></div>';
 
+    }else if(type=="ota"){
+        //ajax2();
     }else{
         query('check','',function(callBack){
             cslog(callBack);
@@ -373,7 +375,7 @@ function loadScreen(type){
 
 function ajax(sendData){
     var xhttp = new XMLHttpRequest();
-    xhttp.open("POST", "https://tti-ep.tti.tv:8111/ep/tools/app_receive?code=ttiep123", true);  
+    xhttp.open("POST", "https://tti-ep.tti.tv/ep/tools/app_receive?code=ttiep123", true);  
     var json_upload = "json=" + JSON.stringify(sendData);
     xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     xhttp.send(json_upload);
@@ -388,6 +390,16 @@ function ajax(sendData){
           document.getElementById("loading-bg").style.display = "none";
           alert("ERROR:"+this.readyState+"-"+this.status);
         }
+      };
+}
+
+function ajax2(){
+    var xhttp = new XMLHttpRequest();
+    xhttp.open("POST", "http://tti-ep.tti.tv:8111/ota/ttiep/www/chcp.json", true);  
+    xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    xhttp.send();
+      xhttp.onreadystatechange = function() {
+        console.log(xhttp.responseText);
       };
 }
 
