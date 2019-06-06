@@ -1,11 +1,11 @@
 [
     {
-        "merged": "D:\\cordova\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-port-mdpi_screen.png.flat",
-        "source": "D:\\cordova\\platforms\\android\\app\\src\\main\\res\\drawable-port-mdpi\\screen.png"
-    },
-    {
         "merged": "D:\\cordova\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-port-xhdpi_screen.png.flat",
         "source": "D:\\cordova\\platforms\\android\\app\\src\\main\\res\\drawable-port-xhdpi\\screen.png"
+    },
+    {
+        "merged": "D:\\cordova\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-port-mdpi_screen.png.flat",
+        "source": "D:\\cordova\\platforms\\android\\app\\src\\main\\res\\drawable-port-mdpi\\screen.png"
     },
     {
         "merged": "D:\\cordova\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher.png.flat",

@@ -43,15 +43,13 @@
                 "PHOTOLIBRARY_ADD_USAGE_DESCRIPTION": "YOUR-PERMISSION-REQUEST",
                 "PHOTOLIBRARY_USAGE_DESCRIPTION": "YOUR-PERMISSION-REQUEST"
             },
-            "cordova-plugin-camera": {
-                "CAMERA_USAGE_DESCRIPTION": "YOUR-PERMISSION-REQUEST"
-            },
             "cordova-plugin-statusbar": {},
             "cordova-plugin-ping": {},
             "cordova-plugin-code-push": {},
             "cordova-plugin-file": {},
             "cordova-plugin-file-transfer": {},
-            "cordova-plugin-zip": {}
+            "cordova-plugin-zip": {},
+            "cordova-plugin-camera": {}
         },
         "platforms": [
             "browser",
