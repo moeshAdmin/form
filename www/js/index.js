@@ -29,6 +29,8 @@ var app = {
         }else if(pageName.match("form")){
             document.getElementById('photo-btn').addEventListener('click', app.takephoto);
             loadData("area");
+        }else if(pageName.match("data")){
+            loadData("data");
         }
         
     },
@@ -114,14 +116,14 @@ function query(type,data,callBack){
                 alert('Transaction ERROR: ' + error.message);
             });
         }else if(type=="select2"){
-            tx.executeSql("select * from config_table order by id desc", [], 
+            tx.executeSql("select id,name,isUpdate,image64 from contact_table", [], 
                 function (tx, res) {
-                    var strMsg = "目前共有 " + res.rows.length + " 資料\r\n";
                     //利用for迴圈，將所有取得的資料印出
+                    var html = '';
                     for (var i = 0; i < res.rows.length; i++) {
-                        strMsg += "vlName:" + res.rows.item(i)["vlName"] + " vl1:" + res.rows.item(i)["vl1"] + " vl2:" + res.rows.item(i)["vl2"]  + "\r\n";
+                        html += "<fieldset><b>ID:" + res.rows.item(i)["id"] +"</b><img style='width:100%' src='" + res.rows.item(i)["image64"] + "'></div></fieldset>";
                     }
-                    alert(strMsg);
+                    callBack(html);
             }, function(error) {
                 alert('Transaction ERROR: ' + error.message);
             });
@@ -273,6 +275,13 @@ function loadData(type){
             document.getElementById("sales").value = data['vl2'];
             document.getElementById("uKey").value = data['vl3'];
         });
+    }else if(type=="data"){
+        loadScreen("start");
+        query("select2",'',function(html){
+            document.getElementById('content').innerHTML = html;
+            loadScreen("end");
+        });
+        
     }
 }
 
@@ -314,6 +323,8 @@ function run(type,callBack){
                     window.location = 'form.html';
                 }else if(type=="config"){
                     window.location = 'config.html';
+                }else if(type=="data"){
+                    window.location = 'data.html';
                 }else if(type=="check"){
                     alert('OK');
                 }

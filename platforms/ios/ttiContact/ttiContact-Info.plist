@@ -55,12 +55,12 @@
     <key>NSMicrophoneUsageDescription</key>
     <string>YOUR-PERMISSION-REQUEST</string>
     <key>NSPhotoLibraryAddUsageDescription</key>
+    <string>This app requires photo library access to function properly.</string>
+    <key>NSPhotoLibraryUsageDescription</key>
     <string>YOUR-PERMISSION-REQUEST</string>
     <key>NSCameraUsageDescription</key>
     <string>YOUR-PERMISSION-REQUEST</string>
     <key>NSLocationWhenInUseUsageDescription</key>
-    <string>YOUR-PERMISSION-REQUEST</string>
-    <key>NSPhotoLibraryUsageDescription</key>
     <string>YOUR-PERMISSION-REQUEST</string>
   </dict>
 </plist>
