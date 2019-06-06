@@ -42,10 +42,6 @@
     <feature name="AppVersion">
         <param name="ios-package" value="AppVersion" />
     </feature>
-    <feature name="SocialSharing">
-        <param name="ios-package" value="SocialSharing" />
-        <param name="onload" value="true" />
-    </feature>
     <name>ttiContact</name>
     <description>
         ttiContact
