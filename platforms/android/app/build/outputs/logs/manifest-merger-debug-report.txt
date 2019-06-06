@@ -21,17 +21,17 @@ INJECTED from D:\cordova\platforms\android\app\src\main\AndroidManifest.xml:2:1-
 INJECTED from D:\cordova\platforms\android\app\src\main\AndroidManifest.xml:2:1-18:12
 INJECTED from D:\cordova\platforms\android\app\src\main\AndroidManifest.xml:2:1-18:12
 	package
-		ADDED from D:\cordova\platforms\android\app\src\main\AndroidManifest.xml:2:102-125
+		ADDED from D:\cordova\platforms\android\app\src\main\AndroidManifest.xml:2:103-126
 		INJECTED from D:\cordova\platforms\android\app\src\main\AndroidManifest.xml
 		INJECTED from D:\cordova\platforms\android\app\src\main\AndroidManifest.xml
 	android:versionName
-		ADDED from D:\cordova\platforms\android\app\src\main\AndroidManifest.xml:2:74-101
+		ADDED from D:\cordova\platforms\android\app\src\main\AndroidManifest.xml:2:74-102
 		INJECTED from D:\cordova\platforms\android\app\src\main\AndroidManifest.xml
 		INJECTED from D:\cordova\platforms\android\app\src\main\AndroidManifest.xml
 	android:hardwareAccelerated
 		ADDED from D:\cordova\platforms\android\app\src\main\AndroidManifest.xml:2:11-45
 	xmlns:android
-		ADDED from D:\cordova\platforms\android\app\src\main\AndroidManifest.xml:2:126-184
+		ADDED from D:\cordova\platforms\android\app\src\main\AndroidManifest.xml:2:127-185
 	android:versionCode
 		ADDED from D:\cordova\platforms\android\app\src\main\AndroidManifest.xml:2:46-73
 		INJECTED from D:\cordova\platforms\android\app\src\main\AndroidManifest.xml

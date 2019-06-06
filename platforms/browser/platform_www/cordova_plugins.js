@@ -37,14 +37,6 @@ module.exports = [
         "runs": true
     },
     {
-        "file": "plugins/cordova-plugin-ping/www/ping.js",
-        "id": "cordova-plugin-ping.ping",
-        "pluginId": "cordova-plugin-ping",
-        "clobbers": [
-            "Ping"
-        ]
-    },
-    {
         "file": "plugins/code-push/script/acquisition-sdk.js",
         "id": "code-push.AcquisitionManager",
         "pluginId": "code-push",
@@ -67,82 +59,6 @@ module.exports = [
         "merges": [
             "navigator.notification"
         ]
-    },
-    {
-        "file": "plugins/cordova-plugin-code-push/bin/www/codePush.js",
-        "id": "cordova-plugin-code-push.codePush",
-        "pluginId": "cordova-plugin-code-push",
-        "clobbers": [
-            "codePush"
-        ]
-    },
-    {
-        "file": "plugins/cordova-plugin-code-push/bin/www/localPackage.js",
-        "id": "cordova-plugin-code-push.localPackage",
-        "pluginId": "cordova-plugin-code-push",
-        "clobbers": [
-            "LocalPackage"
-        ]
-    },
-    {
-        "file": "plugins/cordova-plugin-code-push/bin/www/remotePackage.js",
-        "id": "cordova-plugin-code-push.remotePackage",
-        "pluginId": "cordova-plugin-code-push",
-        "clobbers": [
-            "RemotePackage"
-        ]
-    },
-    {
-        "file": "plugins/cordova-plugin-code-push/bin/www/syncStatus.js",
-        "id": "cordova-plugin-code-push.syncStatus",
-        "pluginId": "cordova-plugin-code-push",
-        "clobbers": [
-            "SyncStatus"
-        ]
-    },
-    {
-        "file": "plugins/cordova-plugin-code-push/bin/www/installMode.js",
-        "id": "cordova-plugin-code-push.installMode",
-        "pluginId": "cordova-plugin-code-push",
-        "clobbers": [
-            "InstallMode"
-        ]
-    },
-    {
-        "file": "plugins/cordova-plugin-code-push/bin/www/codePushUtil.js",
-        "id": "cordova-plugin-code-push.codePushUtil",
-        "pluginId": "cordova-plugin-code-push",
-        "runs": true
-    },
-    {
-        "file": "plugins/cordova-plugin-code-push/bin/www/fileUtil.js",
-        "id": "cordova-plugin-code-push.fileUtil",
-        "pluginId": "cordova-plugin-code-push",
-        "runs": true
-    },
-    {
-        "file": "plugins/cordova-plugin-code-push/bin/www/httpRequester.js",
-        "id": "cordova-plugin-code-push.httpRequester",
-        "pluginId": "cordova-plugin-code-push",
-        "runs": true
-    },
-    {
-        "file": "plugins/cordova-plugin-code-push/bin/www/nativeAppInfo.js",
-        "id": "cordova-plugin-code-push.nativeAppInfo",
-        "pluginId": "cordova-plugin-code-push",
-        "runs": true
-    },
-    {
-        "file": "plugins/cordova-plugin-code-push/bin/www/package.js",
-        "id": "cordova-plugin-code-push.package",
-        "pluginId": "cordova-plugin-code-push",
-        "runs": true
-    },
-    {
-        "file": "plugins/cordova-plugin-code-push/bin/www/sdk.js",
-        "id": "cordova-plugin-code-push.sdk",
-        "pluginId": "cordova-plugin-code-push",
-        "runs": true
     },
     {
         "file": "plugins/cordova-plugin-file/www/DirectoryEntry.js",
@@ -324,38 +240,6 @@ module.exports = [
         ]
     },
     {
-        "file": "plugins/cordova-plugin-file-transfer/www/FileTransferError.js",
-        "id": "cordova-plugin-file-transfer.FileTransferError",
-        "pluginId": "cordova-plugin-file-transfer",
-        "clobbers": [
-            "window.FileTransferError"
-        ]
-    },
-    {
-        "file": "plugins/cordova-plugin-file-transfer/www/FileTransfer.js",
-        "id": "cordova-plugin-file-transfer.FileTransfer",
-        "pluginId": "cordova-plugin-file-transfer",
-        "clobbers": [
-            "window.FileTransfer"
-        ]
-    },
-    {
-        "file": "plugins/cordova-plugin-file-transfer/www/browser/FileTransfer.js",
-        "id": "cordova-plugin-file-transfer.BrowserFileTransfer",
-        "pluginId": "cordova-plugin-file-transfer",
-        "clobbers": [
-            "window.FileTransfer"
-        ]
-    },
-    {
-        "file": "plugins/cordova-plugin-zip/zip.js",
-        "id": "cordova-plugin-zip.Zip",
-        "pluginId": "cordova-plugin-zip",
-        "clobbers": [
-            "zip"
-        ]
-    },
-    {
         "file": "plugins/cordova-plugin-camera/www/CameraConstants.js",
         "id": "cordova-plugin-camera.Camera",
         "pluginId": "cordova-plugin-camera",
@@ -384,6 +268,14 @@ module.exports = [
         "id": "cordova-plugin-camera.CameraProxy",
         "pluginId": "cordova-plugin-camera",
         "runs": true
+    },
+    {
+        "file": "plugins/cordova-plugin-app-version/www/AppVersionPlugin.js",
+        "id": "cordova-plugin-app-version.AppVersionPlugin",
+        "pluginId": "cordova-plugin-app-version",
+        "clobbers": [
+            "cordova.getAppVersion"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -395,15 +287,12 @@ module.exports.metadata =
     "cordova-sqlite-evcore-extbuild-free": "0.9.10",
     "cordova-plugin-ios-camera-permissions": "1.2.0",
     "cordova-plugin-statusbar": "2.4.2",
-    "cordova-plugin-ping": "0.3.1",
     "code-push": "2.0.6",
     "cordova-plugin-dialogs": "2.0.1",
-    "cordova-plugin-code-push": "1.11.17",
     "cordova-plugin-compat": "1.2.0",
     "cordova-plugin-file": "4.3.3",
-    "cordova-plugin-file-transfer": "1.6.3",
-    "cordova-plugin-zip": "3.1.0",
-    "cordova-plugin-camera": "4.0.3"
+    "cordova-plugin-camera": "4.0.3",
+    "cordova-plugin-app-version": "0.1.9"
 }
 // BOTTOM OF METADATA
 });

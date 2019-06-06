@@ -15,7 +15,9 @@ var app = {
 
     // Update DOM on a Received Event
     receivedEvent: function(id) {
-
+        cordova.getAppVersion.getVersionNumber().then(function (version) {
+            document.getElementById('ver').innerHTML = version;
+        });
         var pageName = location.pathname;
         if(pageName.match("config")){
             loadData("config");
@@ -23,7 +25,7 @@ var app = {
             loadData("done");
         }else if(pageName.match("index")){
             run("chkDB");
-            run("ping");
+            run("chkVer");
         }else if(pageName.match("form")){
             document.getElementById('photo-btn').addEventListener('click', app.takephoto);
             loadData("area");
@@ -296,8 +298,8 @@ function run(type,callBack){
         //找不到好的方法 暫時先抽掉
         document.getElementById("uploadArea").innerHTML = '<div type="btn" style="width:calc(100%);" onclick="uploadData();"><div class="btn-icon"><img src="css/images/icons-svg/transfer.svg"></div><div class="btn-title">UPLOAD DB</div></div>';
 
-    }else if(type=="ota"){
-        //ajax2();
+    }else if(type=="chkVer"){
+        ajax2();
     }else{
         query('check','',function(callBack){
             cslog(callBack);
@@ -394,13 +396,28 @@ function ajax(sendData){
 }
 
 function ajax2(){
-    var xhttp = new XMLHttpRequest();
-    xhttp.open("POST", "http://tti-ep.tti.tv:8111/ota/ttiep/www/chcp.json", true);  
-    xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    xhttp.send();
-      xhttp.onreadystatechange = function() {
-        console.log(xhttp.responseText);
-      };
+    loadScreen("start");
+    cordova.getAppVersion.getVersionNumber().then(function (version) {
+        var xhttp = new XMLHttpRequest();
+        xhttp.open("POST", "https://tti-ep.tti.tv/ep/tools/app_receive/ota/chk", true);  
+        xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        var post = "ver=" + version;
+        xhttp.send(post);
+        loaderText('version chk...');
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                alert(xhttp.responseText);
+                window.location.href = 'https://tti-ep.tti.tv/ep/tools/app_receive/ota/download';
+            }else if(this.readyState > 1 &&this.status != 200){
+                loaderText('version chk error');
+                setTimeout(function(){
+                    loadScreen("end");
+                }, 1000);
+            }
+            loadScreen("end");
+        };
+    });
+    
 }
 
 function loaderText(text){
