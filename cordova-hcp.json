@@ -1,7 +1,0 @@
-{
-  "name": "ttiep",
-  "ios_identifier": "",
-  "android_identifier": "com.tti.ttiep",
-  "update": "start",
-  "content_url": "http://tti-ep.tti.tv:8111/ota/ttiep/www"
-}
