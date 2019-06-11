@@ -60,7 +60,7 @@
         <preference name="StatusBarBackgroundColor" value="#002938" />
         <preference name="StatusBarStyle" value="lightcontent" />
     </platform>
-    <plugin name="cordova-plugin-camera" spec="^4.0.3" />
+    <plugin name="cordova-plugin-camera" spec="^4.0.0" />
     <plugin name="cordova-plugin-device" spec="^2.0.2" />
     <plugin name="cordova-plugin-console" spec="^1.1.0" />
     <plugin name="cordova-sqlite-evcore-extbuild-free" spec="^0.9.10" />
