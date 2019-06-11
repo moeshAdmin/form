@@ -25,7 +25,8 @@ var app = {
             loadData("done");
         }else if(pageName.match("index")){
             run("chkDB");
-            //run("chkVer");
+            run("ping");
+            run("chkVer");            
         }else if(pageName.match("form")){
             document.getElementById('photo-btn').addEventListener('click', app.takephoto);
             loadData("area");
@@ -416,8 +417,8 @@ function ajax2(){
         xhttp.send(post);
         loaderText('version chk...');
         xhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200&&xhttp.responseText) {
-                alert(xhttp.responseText);
+            if (this.readyState == 4 && this.status == 200&&xhttp.responseText.match(/update/)) {
+                alert('NEW Version Found!');
                 window.location.href = 'https://build.phonegap.com/apps/3443357/share';
             }else if(this.readyState > 1 &&this.status != 200){
                 loaderText('version chk error');
