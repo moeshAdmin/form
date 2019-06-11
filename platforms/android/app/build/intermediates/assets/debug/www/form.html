@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <!--<meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">-->
+        <meta name="format-detection" content="telephone=no">
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+        <link rel="stylesheet" type="text/css" href="css/forms.css">
+        <title>Customer Form</title>
+        
+    </head>
+    <body>
+        <div class="container">  
+
+          <h3 style="color:#fff;">TATUNG TECHNOLOGY INC.</h3>
+
+          <form id="contact" method="post">
+            <h3>Customer Form</h3>
+            <fieldset>
+              <!--照片區 -->
+              <div class="btn-container">
+                <div id="photo-btn" type="btn" style="width:calc(100%);">
+                  <div class="btn-icon"><img src="css/images/icons-svg/photo-camera.svg"></div>
+                  <div class="btn-title">TAKE PHOTO</div>
+                </div>
+              </div>
+              <div id="imgArea" style="display: none;">
+                <img alt="image" id="photo" style="width:100%" type="text" />
+                <select id="lang">
+                  <option value="cht">Chinese(Traditional)</option>
+                  <option value="chs">Chinese(Simplified)</option>
+                  <option value="dut">Dutch</option>
+                  <option value="eng" selected="selected">English</option>
+                  <option value="ger">German</option>
+                  <option value="jpn">Japanese</option>
+                  <option value="pol">Polish</option>
+                  <option value="spa">Spanish</option>
+                </select>
+              </div>
+              <!--照片區 -->
+            </fieldset>
+            <div id="formArea">
+              <fieldset>
+                <input placeholder="Your name" type="text" tabindex="1" id="name" required autofocus>
+              </fieldset>
+              <fieldset>
+                <input placeholder="Your Business Email Address" type="email" id="email" tabindex="2" required>
+              </fieldset>
+              <fieldset>
+                <input placeholder="Your Phone Number (optional)" type="tel" id="tel" tabindex="3">
+              </fieldset>
+              <fieldset>
+                <input placeholder="Company Name (optional)" type="text" id="com" tabindex="4">
+              </fieldset>
+              <fieldset>
+                <input placeholder="Your Job Title (optional)" type="text" id="title" tabindex="4">
+              </fieldset>
+              <fieldset>
+                <input type="text" placeholder="sales" id="sales" tabindex="6" readonly>
+              </fieldset>
+              <fieldset>
+                <input placeholder="area" type="text" id="area" tabindex="6" readonly>
+              </fieldset> 
+            </div>
+              <fieldset>
+                <textarea placeholder="Type your message here...." tabindex="5" id="note"></textarea>
+              </fieldset>
+              <input placeholder="area" type="text" id="uKey" tabindex="6" style="display: none;">
+              <fieldset>
+                <div onclick="saveData('form')" type="btn" id="contact-submit" style="width:calc(100%);height:35px;">Submit</div>
+              </fieldset>
+              <div onclick="run('tool');">---　　　　　　　　　　</div>
+          </form>
+        </div>
+
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+    </body>
+</html>

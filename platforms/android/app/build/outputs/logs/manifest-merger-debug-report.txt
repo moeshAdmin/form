@@ -15,8 +15,8 @@ ADDED from D:\cordova\platforms\android\app\src\main\AndroidManifest.xml:2:1-18:
 INJECTED from D:\cordova\platforms\android\app\src\main\AndroidManifest.xml:2:1-18:12
 INJECTED from D:\cordova\platforms\android\app\src\main\AndroidManifest.xml:2:1-18:12
 INJECTED from D:\cordova\platforms\android\app\src\main\AndroidManifest.xml:2:1-18:12
-MERGED from [:CordovaLib] D:\cordova\platforms\android\CordovaLib\build\intermediates\library_manifest\debug\AndroidManifest.xml:20:1-27:12
-MERGED from [com.android.support:support-v4:24.1.1] C:\Users\User\.gradle\caches\transforms-1\files-1.1\support-v4-24.1.1.aar\c394df8e4fe5e6d1f9408f15cafd402e\AndroidManifest.xml:17:1-27:12
+MERGED from [com.android.support:support-v4:24.1.1] C:\Users\User\.gradle\caches\transforms-1\files-1.1\support-v4-24.1.1.aar\9577b31847fc62b5529d1880bbbe628e\AndroidManifest.xml:17:1-27:12
+MERGED from [:CordovaLib] D:\cordova\platforms\android\CordovaLib\build\intermediates\manifests\full\debug\AndroidManifest.xml:20:1-27:12
 INJECTED from D:\cordova\platforms\android\app\src\main\AndroidManifest.xml:2:1-18:12
 INJECTED from D:\cordova\platforms\android\app\src\main\AndroidManifest.xml:2:1-18:12
 INJECTED from D:\cordova\platforms\android\app\src\main\AndroidManifest.xml:2:1-18:12
@@ -56,16 +56,16 @@ ADDED from D:\cordova\platforms\android\app\src\main\AndroidManifest.xml:4:5-67
 		ADDED from D:\cordova\platforms\android\app\src\main\AndroidManifest.xml:4:22-64
 application
 ADDED from D:\cordova\platforms\android\app\src\main\AndroidManifest.xml:5:5-15:19
-MERGED from [com.android.support:support-v4:24.1.1] C:\Users\User\.gradle\caches\transforms-1\files-1.1\support-v4-24.1.1.aar\c394df8e4fe5e6d1f9408f15cafd402e\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-v4:24.1.1] C:\Users\User\.gradle\caches\transforms-1\files-1.1\support-v4-24.1.1.aar\c394df8e4fe5e6d1f9408f15cafd402e\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-v4:24.1.1] C:\Users\User\.gradle\caches\transforms-1\files-1.1\support-v4-24.1.1.aar\9577b31847fc62b5529d1880bbbe628e\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-v4:24.1.1] C:\Users\User\.gradle\caches\transforms-1\files-1.1\support-v4-24.1.1.aar\9577b31847fc62b5529d1880bbbe628e\AndroidManifest.xml:25:5-20
 	android:supportsRtl
-		ADDED from D:\cordova\platforms\android\app\src\main\AndroidManifest.xml:5:121-147
+		ADDED from D:\cordova\platforms\android\app\src\main\AndroidManifest.xml:5:114-140
 	android:label
-		ADDED from D:\cordova\platforms\android\app\src\main\AndroidManifest.xml:5:88-120
+		ADDED from D:\cordova\platforms\android\app\src\main\AndroidManifest.xml:5:81-113
 	android:hardwareAccelerated
 		ADDED from D:\cordova\platforms\android\app\src\main\AndroidManifest.xml:5:18-52
 	android:icon
-		ADDED from D:\cordova\platforms\android\app\src\main\AndroidManifest.xml:5:53-87
+		ADDED from D:\cordova\platforms\android\app\src\main\AndroidManifest.xml:5:53-80
 activity#com.tti.ttiep.MainActivity
 ADDED from D:\cordova\platforms\android\app\src\main\AndroidManifest.xml:6:9-11:20
 	android:label
@@ -80,7 +80,7 @@ ADDED from D:\cordova\platforms\android\app\src\main\AndroidManifest.xml:6:9-11:
 		ADDED from D:\cordova\platforms\android\app\src\main\AndroidManifest.xml:6:194-256
 	android:name
 		ADDED from D:\cordova\platforms\android\app\src\main\AndroidManifest.xml:6:166-193
-intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
 ADDED from D:\cordova\platforms\android\app\src\main\AndroidManifest.xml:7:13-10:29
 	android:label
 		ADDED from D:\cordova\platforms\android\app\src\main\AndroidManifest.xml:7:28-65
@@ -95,13 +95,13 @@ ADDED from D:\cordova\platforms\android\app\src\main\AndroidManifest.xml:9:17-77
 uses-sdk
 ADDED from D:\cordova\platforms\android\app\src\main\AndroidManifest.xml:16:5-74
 INJECTED from D:\cordova\platforms\android\app\src\main\AndroidManifest.xml:16:5-74
-MERGED from [:CordovaLib] D:\cordova\platforms\android\CordovaLib\build\intermediates\library_manifest\debug\AndroidManifest.xml:25:5-44
-MERGED from [:CordovaLib] D:\cordova\platforms\android\CordovaLib\build\intermediates\library_manifest\debug\AndroidManifest.xml:25:5-44
-MERGED from [com.android.support:support-v4:24.1.1] C:\Users\User\.gradle\caches\transforms-1\files-1.1\support-v4-24.1.1.aar\c394df8e4fe5e6d1f9408f15cafd402e\AndroidManifest.xml:21:5-23:54
-MERGED from [com.android.support:support-v4:24.1.1] C:\Users\User\.gradle\caches\transforms-1\files-1.1\support-v4-24.1.1.aar\c394df8e4fe5e6d1f9408f15cafd402e\AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:support-v4:24.1.1] C:\Users\User\.gradle\caches\transforms-1\files-1.1\support-v4-24.1.1.aar\9577b31847fc62b5529d1880bbbe628e\AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:support-v4:24.1.1] C:\Users\User\.gradle\caches\transforms-1\files-1.1\support-v4-24.1.1.aar\9577b31847fc62b5529d1880bbbe628e\AndroidManifest.xml:21:5-23:54
+MERGED from [:CordovaLib] D:\cordova\platforms\android\CordovaLib\build\intermediates\manifests\full\debug\AndroidManifest.xml:25:5-44
+MERGED from [:CordovaLib] D:\cordova\platforms\android\CordovaLib\build\intermediates\manifests\full\debug\AndroidManifest.xml:25:5-44
 INJECTED from D:\cordova\platforms\android\app\src\main\AndroidManifest.xml:16:5-74
 	tools:overrideLibrary
-		ADDED from [com.android.support:support-v4:24.1.1] C:\Users\User\.gradle\caches\transforms-1\files-1.1\support-v4-24.1.1.aar\c394df8e4fe5e6d1f9408f15cafd402e\AndroidManifest.xml:23:9-51
+		ADDED from [com.android.support:support-v4:24.1.1] C:\Users\User\.gradle\caches\transforms-1\files-1.1\support-v4-24.1.1.aar\9577b31847fc62b5529d1880bbbe628e\AndroidManifest.xml:23:9-51
 	android:targetSdkVersion
 		ADDED from D:\cordova\platforms\android\app\src\main\AndroidManifest.xml:16:42-71
 	android:minSdkVersion
