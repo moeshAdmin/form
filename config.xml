@@ -28,7 +28,6 @@
     <platform name="ios">
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
-        <icon src="icon.png" />
         <icon height="180" src="res/icon/ios/icon-60-3x.png" width="180" />
         <icon height="60" src="res/icon/ios/icon-60.png" width="60" />
         <icon height="120" src="res/icon/ios/icon-60-2x.png" width="120" />
